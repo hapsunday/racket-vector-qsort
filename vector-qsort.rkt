@@ -57,3 +57,12 @@
         (-qsort! Re R))))
   A)
 
+
+(require math/base)
+
+(define (test-sort [N : Fixnum])
+  (time (let ([A (build-vector N (lambda ([x : Index]) : Integer
+                                         (random-integer -100000 1000000000)))])
+          (vector-qsort! A <)
+          (vector-copy A 0 10))))
+
